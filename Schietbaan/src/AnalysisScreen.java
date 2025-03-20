@@ -1,7 +1,15 @@
+import SearchAlgorithms.BinarySearch;
+import SearchAlgorithms.LinearSearch;
+import SortingAlgorithms.BubbleSort;
+import SortingAlgorithms.QuickSort;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.util.Arrays;
+
+import static java.awt.List.*;
 
 public class AnalysisScreen extends JFrame {
     private File selectedFile;
@@ -65,11 +73,65 @@ public class AnalysisScreen extends JFrame {
         String searchMethod = (String) searchAlgorithmSelection.getSelectedItem();
         String searchValue = searchField.getText();
 
-        // Simulated analysis result
-        resultArea.setText("🔄 Sorting using: " + sortMethod + "\n" +
-                "🔍 Searching using: " + searchMethod + "\n" +
-                "📊 Search Value: " + (searchValue.isEmpty() ? "None" : searchValue) + "\n\n" +
-                "✅ Analysis Completed!");
+        // Sample dataset
+        java.util.List<String> fileData = java.util.List.of("34", "12", "9", "45", "78", "56");
+
+        try
+        {
+            if (fileData.stream().allMatch(s -> s.matches("-?\\d+")))
+            {
+                Integer[] data = fileData.stream().map(Integer::parseInt).toArray(Integer[]::new);
+                Integer searchVal = searchValue.isEmpty() ? null : Integer.parseInt(searchValue);
+                analyzeData(data, sortMethod, searchMethod, searchVal); // Calls the generic method
+            }
+            else if (fileData.stream().allMatch(s ->s.matches("-?\\d+(\\. \\d+)?")))
+            {
+                Double[] data = fileData.stream().map(Double::parseDouble).toArray(Double[]::new);
+                Double searchVal = searchValue.isEmpty() ? null : Double.parseDouble(searchValue);
+                analyzeData(data, sortMethod, searchMethod, searchVal);
+            }
+            else
+            {
+                String[] data = fileData.toArray(new String[0]);
+                analyzeData(data, sortMethod, searchMethod, searchValue);
+            }
+        }
+        catch(NumberFormatException ex)
+        {
+            resultArea.setText("❌ Error: Invalid input detected.");
+        }
+    }
+
+    private <T extends Comparable<T>> void analyzeData(T[] data, String sortMethod, String searchMethod, T searchValue)
+    {
+        T[] sortedData;
+        if(sortMethod.equals("Bubble sort"))
+        {
+            sortedData = BubbleSort.sort(data);
+        }
+        else
+        {
+            sortedData = QuickSort.sort(data);
+        }
+
+        int searchResult = -1;
+        if(searchValue != null)
+        {
+            if(searchMethod.equals("Linear Search"))
+            {
+                searchResult = LinearSearch.linearSearch(sortedData, searchValue);
+            }
+            //else nog toevoegen voor de binarySearch
+
+            //Display the results
+            String resultText = "🔄 Sorting using: " + sortMethod + "\n" +
+                    "📊 Sorted Data: " + Arrays.toString(sortedData) + "\n" +
+                    "\n🔍 Searching using: " + searchMethod +
+                    "\n🔎 Search Value: " + searchValue +
+                    "\n✅ Search Result: " +
+                    (searchResult >= 0 ? "Found at index " + searchResult : "Not Found");
+            resultArea.setText(resultText);
+        }
     }
 
     private void goBack() {
