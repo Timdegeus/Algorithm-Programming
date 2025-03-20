@@ -2,12 +2,10 @@ package SearchAlgorithms;
 
 public class LinearSearch
 {
-    // Methode om lineair te zoeken in een array
-    public static int linearSearch(String[] array, String target) {
-        for (int i = 0; i < array.length; i++)
-        {
-            if (array[i].equals(target))
-            {
+    // Generieke methode voor Linear Search
+    public static <T> int linearSearch(T[] array, T target) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(target)) {
                 return i; // Index van het gevonden element retourneren
             }
         }
