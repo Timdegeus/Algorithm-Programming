@@ -12,6 +12,7 @@ public class StartScherm extends JFrame {
     private List<String> schuttersLijst = new ArrayList<>();
     private JButton bestandKiezenButton;
     private JButton schietenButton;
+    private File selectedFile;
 
     public StartScherm() {
         setTitle("Start Schietsessie");
@@ -60,10 +61,26 @@ public class StartScherm extends JFrame {
 
     private void bestandKiezen(ActionEvent e) {
         JFileChooser fileChooser = new JFileChooser();
-        int keuze = fileChooser.showOpenDialog(this);
-        if (keuze == JFileChooser.APPROVE_OPTION) {
-            File geselecteerdBestand = fileChooser.getSelectedFile();
-            JOptionPane.showMessageDialog(this, "Geselecteerd bestand: " + geselecteerdBestand.getName());
+        int choice = fileChooser.showOpenDialog(this);
+        if (choice == JFileChooser.APPROVE_OPTION) {
+            selectedFile = fileChooser.getSelectedFile();
+            if (selectedFile != null) {
+                JOptionPane.showMessageDialog(this, "Geselecteerd bestand: " + selectedFile.getName());
+
+                // Open the analysisScreen
+                AnalysisScreen analysisScreen = new AnalysisScreen(selectedFile);
+                analysisScreen.setVisible(true);
+
+                this.dispose();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Error: no file selected", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "No file was chosen.");
         }
     }
 
