@@ -1,3 +1,5 @@
+import Analyse.AnalyseScore;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -71,8 +73,11 @@ public class SchietbaanGUI extends JFrame
         // ** Knoppen **
         JPanel buttonPanel = new JPanel();
         JButton startButton = new JButton("Schot lossen");
+        JButton analyzeButton = new JButton("Score Analyseren");
         startButton.addActionListener(this::handleNewShot);
+        analyzeButton.addActionListener(this::openAnalyseScreen);
         buttonPanel.add(startButton);
+        buttonPanel.add(analyzeButton);
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
@@ -92,7 +97,7 @@ public class SchietbaanGUI extends JFrame
         int y = (int) (Math.random() * maxOffset * 2) - maxOffset;
 
         schietbaan.voegSchotToe(score, x, y);
-
+        System.out.println(score + " " + x + " " + y);
         schotNummerLabel.setText(String.valueOf(schietbaan.getAantalSchoten() + 1));
         scoreLabel.setText(String.valueOf(score));
         totaalLabel.setText(String.valueOf(schietbaan.getTotaleScore()));
@@ -101,5 +106,12 @@ public class SchietbaanGUI extends JFrame
 
         tableModel.addRow(new Object[]{schietbaan.getAantalSchoten(), score});
         targetPanel.addShot(x, y);
+    }
+
+    private void openAnalyseScreen(ActionEvent e) {
+        AnalyseScore analysisScreen = new AnalyseScore();
+        analysisScreen.setVisible(true);
+
+        this.dispose();
     }
 }

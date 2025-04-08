@@ -1,4 +1,4 @@
-package DataStructures;
+package Datastructures;
 
 public class MyArray<T>
 {

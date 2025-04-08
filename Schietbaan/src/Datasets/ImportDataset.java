@@ -52,16 +52,23 @@ public class ImportDataset {
         }
     }
 
-    public static List<JSONObject> loadJSONData(String filePath) {
-        try {
+    public static List<JSONObject> loadJSONData(String filePath)
+    {
+        try
+        {
             String content = new String(Files.readAllBytes(Paths.get(filePath)));
             JSONArray jsonArray = new JSONArray(content);
             List<JSONObject> list = new ArrayList<>();
-            for (int i = 0; i < jsonArray.length(); i++) {
+
+            for (int i = 0; i < jsonArray.length(); i++)
+            {
                 list.add(jsonArray.getJSONObject(i));
             }
+            System.out.println();
             return list;
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
             return null;
         }
@@ -108,6 +115,7 @@ public class ImportDataset {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return list;
     }
 
