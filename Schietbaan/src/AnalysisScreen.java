@@ -1,141 +1,142 @@
-import SearchAlgorithms.BinarySearch;
-import SearchAlgorithms.LinearSearch;
-import SortingAlgorithms.BubbleSort;
-import SortingAlgorithms.QuickSort;
-
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.util.Arrays;
-
-import static java.awt.List.*;
+import java.util.*;
+import java.util.List;
 
 public class AnalysisScreen extends JFrame {
-    private File selectedFile;
-    private JComboBox<String> sortingAlgorithmSelection;
-    private JComboBox<String> searchAlgorithmSelection;
+    private JTable shooterTable;
+    private DefaultTableModel tableModel;
     private JTextField searchField;
-    private JTextArea resultArea;
-    private JButton analyzeButton;
-    private JButton backButton;
+    private JButton checkShooterButton;
+    private JButton analyzeShooterButton;
+    private boolean isShooterIdValid = false;
+
+    private List<ShooterData> shooterDataList;
 
     public AnalysisScreen(File file) {
-        this.selectedFile = file;
-        setTitle("📊 Data Analysis - " + file.getName());
-        setSize(500, 400);
+        setTitle("📊 Shooter Analysis - " + file.getName());
+        setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout(10, 10));
 
-        // **Main Panel with Padding**
-        JPanel mainPanel = new JPanel();
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-        mainPanel.setLayout(new GridLayout(0, 2, 10, 10)); // Grid layout with spacing
-        add(mainPanel, BorderLayout.CENTER);
+        // Sample data - replace with actual parsed file data
+        shooterDataList = new ArrayList<>(List.of(
+                new ShooterData("A123", 25),
+                new ShooterData("B456", 40),
+                new ShooterData("C789", 15),
+                new ShooterData("D111", 30)
+        ));
 
-        // **Sorting Selection**
-        mainPanel.add(new JLabel("🔀 Sorting Algorithm:", SwingConstants.RIGHT));
-        sortingAlgorithmSelection = new JComboBox<>(new String[]{"Bubble Sort", "Quick Sort"});
-        mainPanel.add(sortingAlgorithmSelection);
+        // Table Setup
+        String[] columns = {"Shooter ID", "Total Shots Fired"};
+        tableModel = new DefaultTableModel(columns, 0);
+        shooterTable = new JTable(tableModel);
+        populateTable(shooterDataList);
+        add(new JScrollPane(shooterTable), BorderLayout.CENTER);
 
-        // **Search Selection**
-        mainPanel.add(new JLabel("🔎 Search Algorithm:", SwingConstants.RIGHT));
-        searchAlgorithmSelection = new JComboBox<>(new String[]{"Linear Search", "Binary Search"});
-        mainPanel.add(searchAlgorithmSelection);
+        // Controls Panel
+        JPanel controlsPanel = new JPanel(new GridLayout(2, 1, 10, 10));
+        JPanel topRow = new JPanel(new FlowLayout());
+        JPanel bottomRow = new JPanel(new FlowLayout());
 
-        // **Search Field**
-        mainPanel.add(new JLabel("📌 Search Value:", SwingConstants.RIGHT));
-        searchField = new JTextField();
-        mainPanel.add(searchField);
+        JButton sortByShooterButton = new JButton("Sort by Shooter ID");
+        JButton sortByShotsButton = new JButton("Sort by Shots Fired");
+        searchField = new JTextField(10);
+        checkShooterButton = new JButton("✅ Check Shooter ID");
+        analyzeShooterButton = new JButton("📊 Analyze Shooter");
+        JButton backButton = new JButton("🔙 Back");
 
-        // **Analyze Button**
-        analyzeButton = new JButton("📈 Analyze");
-        analyzeButton.addActionListener(this::analyzeData);
-        mainPanel.add(analyzeButton);
+        sortByShooterButton.addActionListener(e -> {
+            shooterDataList.sort(Comparator.comparing(ShooterData::getShooterId));
+            populateTable(shooterDataList);
+        });
 
-        // **Back Button**
-        backButton = new JButton("🔙 Back");
-        backButton.addActionListener(e -> goBack());
-        mainPanel.add(backButton);
+        sortByShotsButton.addActionListener(e -> {
+            shooterDataList.sort(Comparator.comparingInt(ShooterData::getTotalShots).reversed());
+            populateTable(shooterDataList);
+        });
 
-        // **Result Area**
-        resultArea = new JTextArea(10, 40);
-        resultArea.setEditable(false);
-        resultArea.setBorder(BorderFactory.createTitledBorder("📊 Analysis Results"));
-        add(new JScrollPane(resultArea), BorderLayout.SOUTH);
+        checkShooterButton.addActionListener(this::checkShooterId);
+        analyzeShooterButton.addActionListener(this::analyzeShooter);
+        backButton.addActionListener(e -> {
+            new StartScherm().setVisible(true);
+            dispose();
+        });
+
+        topRow.add(sortByShooterButton);
+        topRow.add(sortByShotsButton);
+
+        bottomRow.add(new JLabel("Shooter ID:"));
+        bottomRow.add(searchField);
+        bottomRow.add(checkShooterButton);
+        bottomRow.add(analyzeShooterButton);
+        bottomRow.add(backButton);
+
+        controlsPanel.add(topRow);
+        controlsPanel.add(bottomRow);
+        add(controlsPanel, BorderLayout.SOUTH);
 
         setVisible(true);
     }
 
-    private void analyzeData(ActionEvent e) {
-        String sortMethod = (String) sortingAlgorithmSelection.getSelectedItem();
-        String searchMethod = (String) searchAlgorithmSelection.getSelectedItem();
-        String searchValue = searchField.getText();
-
-        // Sample dataset
-        java.util.List<String> fileData = java.util.List.of("34", "12", "9", "45", "78", "56");
-
-        try
-        {
-            if (fileData.stream().allMatch(s -> s.matches("-?\\d+")))
-            {
-                Integer[] data = fileData.stream().map(Integer::parseInt).toArray(Integer[]::new);
-                Integer searchVal = searchValue.isEmpty() ? null : Integer.parseInt(searchValue);
-                analyzeData(data, sortMethod, searchMethod, searchVal); // Calls the generic method
-            }
-            else if (fileData.stream().allMatch(s ->s.matches("-?\\d+(\\. \\d+)?")))
-            {
-                Double[] data = fileData.stream().map(Double::parseDouble).toArray(Double[]::new);
-                Double searchVal = searchValue.isEmpty() ? null : Double.parseDouble(searchValue);
-                analyzeData(data, sortMethod, searchMethod, searchVal);
-            }
-            else
-            {
-                String[] data = fileData.toArray(new String[0]);
-                analyzeData(data, sortMethod, searchMethod, searchValue);
-            }
-        }
-        catch(NumberFormatException ex)
-        {
-            resultArea.setText("❌ Error: Invalid input detected.");
+    private void populateTable(List<ShooterData> dataList) {
+        tableModel.setRowCount(0);
+        for (ShooterData data : dataList) {
+            tableModel.addRow(new Object[]{data.getShooterId(), data.getTotalShots()});
         }
     }
 
-    private <T extends Comparable<T>> void analyzeData(T[] data, String sortMethod, String searchMethod, T searchValue)
-    {
-        T[] sortedData;
-        if(sortMethod.equals("Bubble sort"))
-        {
-            sortedData = BubbleSort.sort(data);
-        }
-        else
-        {
-            sortedData = QuickSort.sort(data);
+    private void checkShooterId(ActionEvent e) {
+        String shooterId = searchField.getText().trim();
+        isShooterIdValid = false;
+
+        if (shooterId.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "❌ Please enter a Shooter ID.");
+            return;
         }
 
-        int searchResult = -1;
-        if(searchValue != null)
-        {
-            if(searchMethod.equals("Linear Search"))
-            {
-                searchResult = LinearSearch.linearSearch(sortedData, searchValue);
-            }
-            //else nog toevoegen voor de binarySearch
+        boolean found = shooterDataList.stream()
+                .anyMatch(data -> data.getShooterId().equalsIgnoreCase(shooterId));
 
-            //Display the results
-            String resultText = "🔄 Sorting using: " + sortMethod + "\n" +
-                    "📊 Sorted Data: " + Arrays.toString(sortedData) + "\n" +
-                    "\n🔍 Searching using: " + searchMethod +
-                    "\n🔎 Search Value: " + searchValue +
-                    "\n✅ Search Result: " +
-                    (searchResult >= 0 ? "Found at index " + searchResult : "Not Found");
-            resultArea.setText(resultText);
+        if (found) {
+            isShooterIdValid = true;
+            JOptionPane.showMessageDialog(this, "✅ Shooter ID is valid!");
+        } else {
+            JOptionPane.showMessageDialog(this, "❌ Shooter ID not found.");
         }
     }
 
-    private void goBack() {
-        new StartScherm().setVisible(true);
+    private void analyzeShooter(ActionEvent e) {
+        if (!isShooterIdValid) {
+            JOptionPane.showMessageDialog(this, "⚠️ Please validate the Shooter ID first.");
+            return;
+        }
+
+        String shooterId = searchField.getText().trim();
+        new ShooterDetailScreen(shooterId).setVisible(true);
         dispose();
+    }
+
+    // Sample data class
+    static class ShooterData {
+        private final String shooterId;
+        private final int totalShots;
+
+        public ShooterData(String shooterId, int totalShots) {
+            this.shooterId = shooterId;
+            this.totalShots = totalShots;
+        }
+
+        public String getShooterId() {
+            return shooterId;
+        }
+
+        public int getTotalShots() {
+            return totalShots;
+        }
     }
 }
