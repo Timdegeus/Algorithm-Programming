@@ -310,51 +310,51 @@
                 {"schotnummer": 10, "schotresultaat": 9.4, "coordinaten": {"X": 0.0, "Y": -0.6}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 9.06, "totale_score": 90.7}
               ]
             },
-            [
-              {
-                "schutter_ID": 29,
-                "schoten": [
-                  {"schotnummer": 1, "schotresultaat": 8.4, "coordinaten": {"X": -0.2, "Y": 0.6}, "vergelijking_vorig_schot": "=", "huidige_seriegemiddelde": 8.4, "totale_score": 8.4},
-                  {"schotnummer": 2, "schotresultaat": 8.2, "coordinaten": {"X": 0.7, "Y": -1.3}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.3, "totale_score": 16.6},
-                  {"schotnummer": 3, "schotresultaat": 8.9, "coordinaten": {"X": -1.1, "Y": 1.0}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.5, "totale_score": 25.5},
-                  {"schotnummer": 4, "schotresultaat": 9.0, "coordinaten": {"X": 0.4, "Y": -0.5}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.625, "totale_score": 34.5},
-                  {"schotnummer": 5, "schotresultaat": 8.7, "coordinaten": {"X": 0.2, "Y": 0.8}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.64, "totale_score": 43.2},
-                  {"schotnummer": 6, "schotresultaat": 9.1, "coordinaten": {"X": -0.9, "Y": -1.0}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.72, "totale_score": 52.3},
-                  {"schotnummer": 7, "schotresultaat": 8.8, "coordinaten": {"X": 0.5, "Y": 0.2}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.73, "totale_score": 61.1},
-                  {"schotnummer": 8, "schotresultaat": 8.3, "coordinaten": {"X": -0.4, "Y": 1.4}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.68, "totale_score": 69.4},
-                  {"schotnummer": 9, "schotresultaat": 9.2, "coordinaten": {"X": 0.3, "Y": -0.7}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.71, "totale_score": 78.6},
-                  {"schotnummer": 10, "schotresultaat": 8.5, "coordinaten": {"X": -0.1, "Y": 1.0}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.69, "totale_score": 87.1}
-                ]
-              },
-              {
-                "schutter_ID": 30,
-                "schoten": [
-                  {"schotnummer": 1, "schotresultaat": 7.8, "coordinaten": {"X": 0.6, "Y": 0.2}, "vergelijking_vorig_schot": "=", "huidige_seriegemiddelde": 7.8, "totale_score": 7.8},
-                  {"schotnummer": 2, "schotresultaat": 8.4, "coordinaten": {"X": -1.3, "Y": 1.2}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.1, "totale_score": 16.2},
-                  {"schotnummer": 3, "schotresultaat": 9.0, "coordinaten": {"X": 1.0, "Y": -0.6}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.4, "totale_score": 25.2},
-                  {"schotnummer": 4, "schotresultaat": 7.5, "coordinaten": {"X": -0.5, "Y": 1.3}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.18, "totale_score": 32.7},
-                  {"schotnummer": 5, "schotresultaat": 8.2, "coordinaten": {"X": 0.8, "Y": 0.9}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.18, "totale_score": 40.9},
-                  {"schotnummer": 6, "schotresultaat": 7.9, "coordinaten": {"X": -0.2, "Y": -1.1}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.13, "totale_score": 48.8},
-                  {"schotnummer": 7, "schotresultaat": 8.5, "coordinaten": {"X": 0.1, "Y": 0.6}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.19, "totale_score": 57.3},
-                  {"schotnummer": 8, "schotresultaat": 8.7, "coordinaten": {"X": -1.0, "Y": -0.2}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.25, "totale_score": 66.0},
-                  {"schotnummer": 9, "schotresultaat": 7.7, "coordinaten": {"X": 0.6, "Y": 1.1}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.14, "totale_score": 73.7},
-                  {"schotnummer": 10, "schotresultaat": 8.3, "coordinaten": {"X": 0.0, "Y": -0.4}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.16, "totale_score": 82.0}
-                ]
-              },
-              {
-                "schutter_ID": 31,
-                "schoten": [
-                  {"schotnummer": 1, "schotresultaat": 9.1, "coordinaten": {"X": 0.2, "Y": 0.2}, "vergelijking_vorig_schot": "=", "huidige_seriegemiddelde": 9.1, "totale_score": 9.1},
-                  {"schotnummer": 2, "schotresultaat": 9.3, "coordinaten": {"X": -0.4, "Y": -1.0}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 9.2, "totale_score": 18.4},
-                  {"schotnummer": 3, "schotresultaat": 8.7, "coordinaten": {"X": 0.5, "Y": 0.9}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 9.03, "totale_score": 27.1},
-                  {"schotnummer": 4, "schotresultaat": 8.5, "coordinaten": {"X": 1.2, "Y": -0.6}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.9, "totale_score": 35.6},
-                  {"schotnummer": 5, "schotresultaat": 9.4, "coordinaten": {"X": -1.1, "Y": 1.0}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 9.0, "totale_score": 45.0},
-                  {"schotnummer": 6, "schotresultaat": 9.2, "coordinaten": {"X": 0.0, "Y": 0.0}, "vergelijking_vorig_schot": "=", "huidige_seriegemiddelde": 9.03, "totale_score": 54.2},
-                  {"schotnummer": 7, "schotresultaat": 8.9, "coordinaten": {"X": 0.6, "Y": -1.3}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 9.01, "totale_score": 63.1},
-                  {"schotnummer": 8, "schotresultaat": 9.5, "coordinaten": {"X": -0.6, "Y": 1.4}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 9.08, "totale_score": 72.6},
-                  {"schotnummer": 9, "schotresultaat": 8.6, "coordinaten": {"X": 0.3, "Y": -0.7}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 9.02, "totale_score": 81.2},
-                  {"schotnummer": 10, "schotresultaat": 9.0, "coordinaten": {"X": -0.2, "Y": 0.5}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 9.03, "totale_score": 90.2}
-                ]
-              }
-            ]
+            
+            {
+              "schutter_ID": 29,
+              "schoten": [
+                {"schotnummer": 1, "schotresultaat": 8.4, "coordinaten": {"X": -0.2, "Y": 0.6}, "vergelijking_vorig_schot": "=", "huidige_seriegemiddelde": 8.4, "totale_score": 8.4},
+                {"schotnummer": 2, "schotresultaat": 8.2, "coordinaten": {"X": 0.7, "Y": -1.3}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.3, "totale_score": 16.6},
+                {"schotnummer": 3, "schotresultaat": 8.9, "coordinaten": {"X": -1.1, "Y": 1.0}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.5, "totale_score": 25.5},
+                {"schotnummer": 4, "schotresultaat": 9.0, "coordinaten": {"X": 0.4, "Y": -0.5}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.625, "totale_score": 34.5},
+                {"schotnummer": 5, "schotresultaat": 8.7, "coordinaten": {"X": 0.2, "Y": 0.8}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.64, "totale_score": 43.2},
+                {"schotnummer": 6, "schotresultaat": 9.1, "coordinaten": {"X": -0.9, "Y": -1.0}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.72, "totale_score": 52.3},
+                {"schotnummer": 7, "schotresultaat": 8.8, "coordinaten": {"X": 0.5, "Y": 0.2}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.73, "totale_score": 61.1},
+                {"schotnummer": 8, "schotresultaat": 8.3, "coordinaten": {"X": -0.4, "Y": 1.4}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.68, "totale_score": 69.4},
+                {"schotnummer": 9, "schotresultaat": 9.2, "coordinaten": {"X": 0.3, "Y": -0.7}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.71, "totale_score": 78.6},
+                {"schotnummer": 10, "schotresultaat": 8.5, "coordinaten": {"X": -0.1, "Y": 1.0}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.69, "totale_score": 87.1}
+              ]
+            },
+            {
+              "schutter_ID": 30,
+              "schoten": [
+                {"schotnummer": 1, "schotresultaat": 7.8, "coordinaten": {"X": 0.6, "Y": 0.2}, "vergelijking_vorig_schot": "=", "huidige_seriegemiddelde": 7.8, "totale_score": 7.8},
+                {"schotnummer": 2, "schotresultaat": 8.4, "coordinaten": {"X": -1.3, "Y": 1.2}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.1, "totale_score": 16.2},
+                {"schotnummer": 3, "schotresultaat": 9.0, "coordinaten": {"X": 1.0, "Y": -0.6}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.4, "totale_score": 25.2},
+                {"schotnummer": 4, "schotresultaat": 7.5, "coordinaten": {"X": -0.5, "Y": 1.3}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.18, "totale_score": 32.7},
+                {"schotnummer": 5, "schotresultaat": 8.2, "coordinaten": {"X": 0.8, "Y": 0.9}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.18, "totale_score": 40.9},
+                {"schotnummer": 6, "schotresultaat": 7.9, "coordinaten": {"X": -0.2, "Y": -1.1}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.13, "totale_score": 48.8},
+                {"schotnummer": 7, "schotresultaat": 8.5, "coordinaten": {"X": 0.1, "Y": 0.6}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.19, "totale_score": 57.3},
+                {"schotnummer": 8, "schotresultaat": 8.7, "coordinaten": {"X": -1.0, "Y": -0.2}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.25, "totale_score": 66.0},
+                {"schotnummer": 9, "schotresultaat": 7.7, "coordinaten": {"X": 0.6, "Y": 1.1}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.14, "totale_score": 73.7},
+                {"schotnummer": 10, "schotresultaat": 8.3, "coordinaten": {"X": 0.0, "Y": -0.4}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 8.16, "totale_score": 82.0}
+              ]
+            },
+            {
+              "schutter_ID": 31,
+              "schoten": [
+                {"schotnummer": 1, "schotresultaat": 9.1, "coordinaten": {"X": 0.2, "Y": 0.2}, "vergelijking_vorig_schot": "=", "huidige_seriegemiddelde": 9.1, "totale_score": 9.1},
+                {"schotnummer": 2, "schotresultaat": 9.3, "coordinaten": {"X": -0.4, "Y": -1.0}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 9.2, "totale_score": 18.4},
+                {"schotnummer": 3, "schotresultaat": 8.7, "coordinaten": {"X": 0.5, "Y": 0.9}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 9.03, "totale_score": 27.1},
+                {"schotnummer": 4, "schotresultaat": 8.5, "coordinaten": {"X": 1.2, "Y": -0.6}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 8.9, "totale_score": 35.6},
+                {"schotnummer": 5, "schotresultaat": 9.4, "coordinaten": {"X": -1.1, "Y": 1.0}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 9.0, "totale_score": 45.0},
+                {"schotnummer": 6, "schotresultaat": 9.2, "coordinaten": {"X": 0.0, "Y": 0.0}, "vergelijking_vorig_schot": "=", "huidige_seriegemiddelde": 9.03, "totale_score": 54.2},
+                {"schotnummer": 7, "schotresultaat": 8.9, "coordinaten": {"X": 0.6, "Y": -1.3}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 9.01, "totale_score": 63.1},
+                {"schotnummer": 8, "schotresultaat": 9.5, "coordinaten": {"X": -0.6, "Y": 1.4}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 9.08, "totale_score": 72.6},
+                {"schotnummer": 9, "schotresultaat": 8.6, "coordinaten": {"X": 0.3, "Y": -0.7}, "vergelijking_vorig_schot": "/", "huidige_seriegemiddelde": 9.02, "totale_score": 81.2},
+                {"schotnummer": 10, "schotresultaat": 9.0, "coordinaten": {"X": -0.2, "Y": 0.5}, "vergelijking_vorig_schot": "+", "huidige_seriegemiddelde": 9.03, "totale_score": 90.2}
+              ]
+            }
+            
 ]

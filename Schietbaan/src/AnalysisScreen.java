@@ -1,10 +1,12 @@
+import Datasets.JsonLoader;
+import Datastructures.MyArrayList;
+import Shooter.Shooter;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.util.*;
-import java.util.List;
 
 public class AnalysisScreen extends JFrame {
     private JTable shooterTable;
@@ -14,7 +16,8 @@ public class AnalysisScreen extends JFrame {
     private JButton analyzeShooterButton;
     private boolean isShooterIdValid = false;
 
-    private List<ShooterData> shooterDataList;
+    private MyArrayList<Shooter> shooterDataList;
+    private JsonLoader jsonLoader;
 
     public AnalysisScreen(File file) {
         setTitle("📊 Shooter Analysis - " + file.getName());
@@ -23,13 +26,17 @@ public class AnalysisScreen extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout(10, 10));
 
+        jsonLoader = new JsonLoader();
+
+        shooterDataList = jsonLoader.loadData(file.getPath());
+
         // Sample data - replace with actual parsed file data
-        shooterDataList = new ArrayList<>(List.of(
-                new ShooterData("A123", 25),
-                new ShooterData("B456", 40),
-                new ShooterData("C789", 15),
-                new ShooterData("D111", 30)
-        ));
+//        shooterDataList = new ArrayList<>(List.of(
+//                new ShooterData("A123", 25),
+//                new ShooterData("B456", 40),
+//                new ShooterData("C789", 15),
+//                new ShooterData("D111", 30)
+//        ));
 
         // Table Setup
         String[] columns = {"Shooter ID", "Total Shots Fired"};
@@ -51,13 +58,13 @@ public class AnalysisScreen extends JFrame {
         JButton backButton = new JButton("🔙 Back");
 
         sortByShooterButton.addActionListener(e -> {
-            shooterDataList.sort(Comparator.comparing(ShooterData::getShooterId));
-            populateTable(shooterDataList);
+//            shooterDataList.sort(Comparator.comparing(ShooterData::getShooterId));
+//            populateTable(shooterDataList);
         });
 
         sortByShotsButton.addActionListener(e -> {
-            shooterDataList.sort(Comparator.comparingInt(ShooterData::getTotalShots).reversed());
-            populateTable(shooterDataList);
+//            shooterDataList.sort(Comparator.comparingInt(ShooterData::getTotalShots).reversed());
+//            populateTable(shooterDataList);
         });
 
         checkShooterButton.addActionListener(this::checkShooterId);
@@ -83,31 +90,32 @@ public class AnalysisScreen extends JFrame {
         setVisible(true);
     }
 
-    private void populateTable(List<ShooterData> dataList) {
+    private void populateTable(MyArrayList<Shooter> dataList) {
         tableModel.setRowCount(0);
-        for (ShooterData data : dataList) {
-            tableModel.addRow(new Object[]{data.getShooterId(), data.getTotalShots()});
+        for (int i = 0; i < dataList.size(); i++)
+        {
+            tableModel.addRow(new Object[]{dataList.get(i).getSchutter_ID(), dataList.get(i).getTotalShots()});
         }
     }
 
     private void checkShooterId(ActionEvent e) {
-        String shooterId = searchField.getText().trim();
-        isShooterIdValid = false;
-
-        if (shooterId.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "❌ Please enter a Shooter ID.");
-            return;
-        }
-
-        boolean found = shooterDataList.stream()
-                .anyMatch(data -> data.getShooterId().equalsIgnoreCase(shooterId));
-
-        if (found) {
-            isShooterIdValid = true;
-            JOptionPane.showMessageDialog(this, "✅ Shooter ID is valid!");
-        } else {
-            JOptionPane.showMessageDialog(this, "❌ Shooter ID not found.");
-        }
+//        String shooterId = searchField.getText().trim();
+//        isShooterIdValid = false;
+//
+//        if (shooterId.isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "❌ Please enter a Shooter ID.");
+//            return;
+//        }
+//
+//        boolean found = shooterDataList.stream()
+//                .anyMatch(data -> data.getShooterId().equalsIgnoreCase(shooterId));
+//
+//        if (found) {
+//            isShooterIdValid = true;
+//            JOptionPane.showMessageDialog(this, "✅ Shooter ID is valid!");
+//        } else {
+//            JOptionPane.showMessageDialog(this, "❌ Shooter ID not found.");
+//        }
     }
 
     private void analyzeShooter(ActionEvent e) {

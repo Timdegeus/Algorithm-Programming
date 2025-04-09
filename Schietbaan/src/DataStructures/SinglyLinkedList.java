@@ -1,7 +1,4 @@
-package DataStructures;
-
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
+package Datastructures;
 
 public class SinglyLinkedList<T>
 {
