@@ -23,6 +23,8 @@ public class TargetPanel extends JPanel
             System.err.println("⚠ Kan afbeelding niet laden! Controleer bestandslocatie.");
             e.printStackTrace();
         }
+
+
     }
 
     // **Voeg een schot toe en converteer naar correcte schaal**
